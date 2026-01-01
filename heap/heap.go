@@ -5,10 +5,12 @@ type Heap[T any] struct {
 	less func(a, b T) bool
 }
 
+// constructor
 func New[T any](less func(a, b T) bool) *Heap[T] {
 	return &Heap[T]{less: less}
 }
 
+// pucblic functions
 func (h *Heap[T]) Len() int {
 	return len(h.data)
 }
@@ -44,6 +46,8 @@ func (h *Heap[T]) Pop() T {
 	}
 	return x
 }
+
+// sift logic
 
 func (h *Heap[T]) up(i int) {
 	for {
